@@ -1,5 +1,7 @@
 # glassworm-hunter
 
+![Glassworm Hunter Logo](assets/images/logo.jpeg)
+
 Detect GlassWorm supply chain attack payloads on your machine. Scans VS Code extensions, npm packages, Python packages, and git repositories.
 
 Unlike existing tools that check against a static list of known malicious extension IDs, this scanner **detects the attack technique itself** - invisible Unicode variation selector payloads, GlassWorm decoder patterns, C2 indicators, and credential harvesting code. It catches variants that don't exist yet.
@@ -18,7 +20,7 @@ pipx install glassworm-hunter
 
 ## Quick start
 
-Scan your current directory and all installed VS Code/Cursor extensions:
+Scan your current directory without scanning VS Code/Cursor extensions:
 
 ```bash
 glassworm-hunter scan --no-extensions
