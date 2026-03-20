@@ -4,7 +4,7 @@
 
 Detect GlassWorm supply chain attack payloads on your machine. Scans VS Code extensions, npm packages, Python packages, and git repositories.
 
-This scanner **detects the attack technique itself** - invisible Unicode variation selector payloads, GlassWorm decoder patterns, C2 indicators, and credential harvesting code. It catches variants that don't exist yet.
+This scanner **detects the attack technique itself** - invisible Unicode variation selector payloads, GlassWorm decoder patterns, C2 indicators, and credential harvesting code.
 
 ## Install
 
