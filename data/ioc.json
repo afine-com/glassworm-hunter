@@ -1,0 +1,393 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-03-18T00:00:00Z",
+  "sources_checked": ["manual-seed-from-ioc.py"],
+  "extensions": [
+    {
+      "id": "codejoy.codejoy-vscode-extension",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "l-igh-t.vscode-theme-seti-folder",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "kleinesfilmroellchen.serenity-dsl-syntaxhighlight",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "jscearcy.rust-doc-viewer",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "sirilmp.dark-theme-sm",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "codeinklingon.git-worktree-menu",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "ginfuru.better-nunjucks",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "ellacrity.recoil",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "grrrck.positron-plus-1-e",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "jeronimoekerdt.color-picker-universal",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "srcery-colors.srcery-colors",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "sissel.shopify-liquid",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "tretinv3.forts-api-extention",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "id": "cline-ai-main.cline-ai-agent",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-19",
+      "confidence": "high"
+    },
+    {
+      "id": "ai-driven-dev.ai-driven-dev",
+      "wave": "wave-2",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-11-06",
+      "confidence": "high"
+    },
+    {
+      "id": "adhamu.history-in-sublime-merge",
+      "wave": "wave-2",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-11-06",
+      "confidence": "high"
+    },
+    {
+      "id": "yasuyuky.transient-emacs",
+      "wave": "wave-2",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-11-06",
+      "confidence": "high"
+    },
+    {
+      "id": "studio-velte-distributor.pro-svelte-extension",
+      "wave": "wave-4",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-12-19",
+      "confidence": "high"
+    },
+    {
+      "id": "cudra-production.vsce-prettier-pro",
+      "wave": "wave-4",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-12-19",
+      "confidence": "high"
+    },
+    {
+      "id": "puccin-development.full-access-catppuccin-pro-extension",
+      "wave": "wave-4",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-12-19",
+      "confidence": "high"
+    },
+    {
+      "id": "quartz.quartz-markdown-editor",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    }
+  ],
+  "npm_packages": [
+    {
+      "name": "@aifabrix/miso-client",
+      "malicious_versions": "4.7.2",
+      "wave": "wave-5",
+      "source": "Aikido Security",
+      "source_url": "https://www.aikido.dev/blog/glassworm-returns-unicode-attack-github-npm-vscode",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "name": "@iflow-mcp/watercrawl-watercrawl-mcp",
+      "malicious_versions": "1.3.0-1.3.4",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "name": "react-native-country-select",
+      "malicious_versions": "0.3.91",
+      "wave": "wave-5",
+      "source": "Aikido Security",
+      "source_url": "https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "name": "react-native-international-phone-number",
+      "malicious_versions": "0.11.8",
+      "wave": "wave-5",
+      "source": "Aikido Security",
+      "source_url": "https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    }
+  ],
+  "c2_ips": [
+    {
+      "ip": "217.69.3.218",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "199.247.10.166",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "217.69.13.229",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "45.76.45.151",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "45.32.151.157",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "107.191.62.170",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "140.82.52.31",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "exfiltration",
+      "confidence": "high"
+    },
+    {
+      "ip": "199.247.13.106",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "exfiltration",
+      "confidence": "high"
+    },
+    {
+      "ip": "104.238.191.54",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "exfiltration",
+      "confidence": "high"
+    },
+    {
+      "ip": "108.61.208.161",
+      "wave": "wave-3",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-11-15",
+      "context": "exfiltration",
+      "confidence": "high"
+    },
+    {
+      "ip": "45.32.150.251",
+      "wave": "wave-4",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-12-19",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "217.69.11.60",
+      "wave": "wave-4",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-12-19",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "70.34.242.255",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2026-03-12",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "217.69.3.152",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2026-03-12",
+      "context": "c2",
+      "confidence": "high"
+    }
+  ],
+  "c2_wallets": [
+    {
+      "address": "28PKnu7RzizxBzFPoLp69HLXp9bJL3JFtT2s5QzHsEA2",
+      "wave": "wave-1",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "address": "BjVeAjPrSKFiingBn4vZvghsGj9KCE8AJVtbc9S8o8SC",
+      "wave": "wave-4",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2025-12-19",
+      "confidence": "high"
+    },
+    {
+      "address": "6YGcuyFRJKZtcaYCCFba9fScNUvPkGXodXE1mJiSzqDJ",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    }
+  ],
+  "attacker_artifacts": [
+    {
+      "type": "email",
+      "value": "uhjdclolkdn@gmail.com",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "type": "path",
+      "value": "/Users/davidioasd/Downloads/rust_implant/",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+      "date_discovered": "2025-10-17",
+      "confidence": "high"
+    },
+    {
+      "type": "marker_variable",
+      "value": "lzcdrtfxyqiplpd",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    }
+  ]
+}
