@@ -4,17 +4,17 @@ build-backend = "hatchling.build"
 
 [project]
 name = "glassworm-hunter"
-version = "0.1.0"
+version = "1.0.0"
 description = "Detect GlassWorm supply chain attack payloads - technique detection, not just blocklists"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
-    { name = "AFINE", email = "contact@afine.pl" },
+    { name = "AFINE", email = "afine@afine.com" },
 ]
 keywords = ["security", "supply-chain", "malware", "vscode", "glassworm"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
