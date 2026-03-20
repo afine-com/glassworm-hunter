@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / OS
+.DS_Store
+__MACOSX/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing / linting caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.nox/
+.coverage
+htmlcov/
+
+# Claude Code (dev-only)
+.claude/
