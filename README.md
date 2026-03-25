@@ -216,7 +216,7 @@ The scanner uses a 3+1 layer IoC system (each layer merges on top of the previou
 
 - [Koi Security](https://www.koi.ai) - original discovery of GlassWorm (October 2025) and ongoing tracking across multiple waves, including the OpenVSX/VSCode campaign, Rust binary pivot, and macOS pivot. IoC data in this scanner builds on their published research.
 - [Aikido Security](https://www.aikido.dev) - analysis of the March 2026 GlassWorm wave targeting GitHub repositories and npm packages, alongside Socket, Step Security, and the OpenSourceMalware community.
-- [AFINE](https://afine.pl) - this scanner
+- [AFINE](https://afine.com) - this scanner. Read the full research: [Hunting GlassWorm: Open-Source Detection for Invisible Supply Chain Payloads](https://afine.com/blogs/hunting-glassworm-open-source-detection-for-invisible-supply-chain-payloads)  
 
 ## Windows
 
