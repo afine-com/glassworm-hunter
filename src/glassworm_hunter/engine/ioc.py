@@ -42,8 +42,116 @@ MALICIOUS_EXTENSIONS: tuple[tuple[str, str, str, str], ...] = (
         "Koi Security",
         "2025-12-19",
     ),
-    # Wave 5 - Mar 2026
+    # Wave 5 - Mar 2026 (existing)
     ("quartz.quartz-markdown-editor", "wave-5", "Koi Security", "2026-03-12"),
+    # Wave 5 - Compromised developer account (Socket.dev, Jan 2026)
+    ("oorzc.ssh-tools", "wave-5", "Socket.dev", "2026-01-30"),
+    ("oorzc.i18n-tools-plus", "wave-5", "Socket.dev", "2026-01-30"),
+    ("oorzc.mind-map", "wave-5", "Socket.dev", "2026-01-30"),
+    ("oorzc.scss-to-css-compile", "wave-5", "Socket.dev", "2026-01-30"),
+    # Wave 5 - Sleeper activations (Socket.dev, Mar 12 2026)
+    ("lauracode.wrap-selected-code", "wave-5", "Socket.dev", "2026-03-12"),
+    ("96-studio.json-formatter", "wave-5", "Socket.dev", "2026-03-12"),
+    # Wave 5 - Weekend wave impersonation (Socket.dev, Mar 14 2026)
+    ("msw-tm.component-vetur-toolkit", "wave-5", "Socket.dev", "2026-03-14"),
+    ("yamal-dext.wonder-workspace-icons", "wave-5", "Socket.dev", "2026-03-14"),
+    ("marcus-tm.ruby-intelligence-toolkit", "wave-5", "Socket.dev", "2026-03-14"),
+    ("namop-dex.claude-code-assistant", "wave-5", "Socket.dev", "2026-03-14"),
+    ("awwwadem.language-professional-tools", "wave-5", "Socket.dev", "2026-03-14"),
+    ("codevunm-tm.cluster-kuberntes-manager", "wave-5", "Socket.dev", "2026-03-14"),
+    ("sweaty-tstudio.quarto-report-studio", "wave-5", "Socket.dev", "2026-03-14"),
+    ("codbro-dxp.explorer-xml-xquery", "wave-5", "Socket.dev", "2026-03-14"),
+    ("sxatvo-tm.compile-runnner-build", "wave-5", "Socket.dev", "2026-03-14"),
+    ("calow-dex.prisma-database-schema-tools", "wave-5", "Socket.dev", "2026-03-14"),
+    ("croct-studio.antigravity-model-usage-dashboard", "wave-5", "Socket.dev", "2026-03-14"),
+    ("specstudio.code-wakatime-activity-tracker", "wave-5", "Socket.dev", "2026-03-14"),
+    ("tool-studio.prettier-pro-code-format", "wave-5", "Socket.dev", "2026-03-14"),
+    ("gorth-tm.your-project-manager-organizer", "wave-5", "Socket.dev", "2026-03-14"),
+    ("dev-tm.code-python-indent-helper", "wave-5", "Socket.dev", "2026-03-14"),
+    ("flape-osx.align-code-format-tool", "wave-5", "Socket.dev", "2026-03-14"),
+    ("floktokbok.autoimport-smart-tool", "wave-5", "Socket.dev", "2026-03-14"),
+    # Wave 5 - Koi Security full list (Mar 16 2026)
+    ("aadarkcode.one-dark-material", "wave-5", "Koi Security", "2026-03-16"),
+    ("aligntool.extension-align-professional-tool", "wave-5", "Koi Security", "2026-03-16"),
+    ("angular-studio.ng-angular-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("awesome-codebase.codebase-dart-pro", "wave-5", "Koi Security", "2026-03-16"),
+    ("awesomeco.wonder-for-vscode-icons", "wave-5", "Koi Security", "2026-03-16"),
+    ("bhbpbarn.vsce-python-indent-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("blockstoks.easily-gitignore-manage", "wave-5", "Koi Security", "2026-03-16"),
+    ("brategmaqendaalar-studio.pro-prettyxml-formatter", "wave-5", "Koi Security", "2026-03-16"),
+    ("codbroks.compile-runnner-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("codevunmis.csv-sql-tsv-rainbow", "wave-5", "Koi Security", "2026-03-16"),
+    ("codwayexten.code-way-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("cosmic-themes.sql-formatter", "wave-5", "Koi Security", "2026-03-16"),
+    ("crotoapp.vscode-xml-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("daeumer-web.es-linter-for-vs-code", "wave-5", "Koi Security", "2026-03-16"),
+    ("dark-code-studio.flutter-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("densy-little-studio.wonder-for-vscode-icons", "wave-5", "Koi Security", "2026-03-16"),
+    ("dep-labs-studio.dep-proffesinal-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("dev-studio-sense.php-comp-tools-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("devmidu-studio.svg-better-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("dopbop-studio.vscode-tailwindcss-extension-toolkit", "wave-5", "Koi Security", "2026-03-16"),
+    ("errlenscre.error-lens-finder-ex", "wave-5", "Koi Security", "2026-03-16"),
+    ("exss-studio.yaml-professional-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("federicanc.dotenv-syntax-highlighting", "wave-5", "Koi Security", "2026-03-16"),
+    ("flutxvs.vscode-kuberntes-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("gvotcha.claude-code-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("gvotcha.claude-code-extensions", "wave-5", "Koi Security", "2026-03-16"),
+    ("intellipro.extension-json-intelligence", "wave-5", "Koi Security", "2026-03-16"),
+    ("kharizma.vscode-extension-wakatime", "wave-5", "Koi Security", "2026-03-16"),
+    ("ko-zu-gun-studio.synchronization-settings-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("kwitch-studio.auto-run-command-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("lavender-studio.theme-lavender-dreams", "wave-5", "Koi Security", "2026-03-16"),
+    ("littensy-studio.magical-icons", "wave-5", "Koi Security", "2026-03-16"),
+    ("lyu-wen-studio-web-han.better-formatter-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("markvalid.vscode-mdvalidator-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("mecreation-studio.pyrefly-pro-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("mswincx.antigravity-cockpit", "wave-5", "Koi Security", "2026-03-16"),
+    ("mswincx.antigravity-cockpit-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("namopins.prettier-pro-vscode-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("oigotm.my-command-palette-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("otoboss.autoimport-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("ovixcode.vscode-better-comments", "wave-5", "Koi Security", "2026-03-16"),
+    ("pessa07tm.my-js-ts-auto-commands", "wave-5", "Koi Security", "2026-03-16"),
+    ("potstok.dotnet-runtime-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("pretty-studio-advisor.prettyxml-formatter", "wave-5", "Koi Security", "2026-03-16"),
+    ("prismapp.prisma-vs-code-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("projmanager.your-project-manager-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("pubruncode.ccoderunner", "wave-5", "Koi Security", "2026-03-16"),
+    ("pyflowpyr.py-flowpyright-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("pyscopexte.pyscope-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("redcapcollective.vscode-quarkus-elite-suite", "wave-5", "Koi Security", "2026-03-16"),
+    ("rubyideext.ruby-ide-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("runnerpost.runner-your-code", "wave-5", "Koi Security", "2026-03-16"),
+    ("shinypy.shiny-extension-for-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("sol-studio.solidity-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("ssgwysc.volar-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("studio-jjalaire-team.professional-quarto-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("sun-shine-studio.shiny-extension-for-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("sxatvo.jinja-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("tamokill12.foundry-pdf-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("thing-mn.your-flow-extension-for-icons", "wave-5", "Koi Security", "2026-03-16"),
+    ("tima-web-wang.shell-check-utils", "wave-5", "Koi Security", "2026-03-16"),
+    ("tokcodes.import-cost-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("toowespace.worksets-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("treedotree.tree-do-todoextension", "wave-5", "Koi Security", "2026-03-16"),
+    ("tucyzirille-studio.angular-pro-tools-extension", "wave-5", "Koi Security", "2026-03-16"),
+    ("turbobase.sql-turbo-tool", "wave-5", "Koi Security", "2026-03-16"),
+    ("twilkbilk.color-highlight-css", "wave-5", "Koi Security", "2026-03-16"),
+    ("vce-brendan-studio-eich.js-debuger-vscode", "wave-5", "Koi Security", "2026-03-16"),
+    ("yamaprolas.revature-labs-extension", "wave-5", "Koi Security", "2026-03-16"),
+    # Wave 5 - Extension pack droppers (Socket.dev, Mar 17 2026)
+    ("spacetoow.vsc-python-indent", "wave-5", "Socket.dev", "2026-03-17"),
+    ("cod-vok.arko-dev-devsecops", "wave-5", "Socket.dev", "2026-03-17"),
+    ("oxigener-tmp.sql-turbo-manager", "wave-5", "Socket.dev", "2026-03-17"),
+    ("otobo-vs.csv-query-tsv-rainbow", "wave-5", "Socket.dev", "2026-03-17"),
+    ("awesome-codespace.jinja-language-support", "wave-5", "Socket.dev", "2026-03-17"),
+    # Wave 5 - Secondary wave (Socket.dev, Mar 18 2026)
+    ("daeumer-web.align-format-tool", "wave-5", "Socket.dev", "2026-03-18"),
+    ("baksmink.vscode-quokka-extension", "wave-5", "Socket.dev", "2026-03-18"),
+    ("bansheejust22.retro-vhs-theme", "wave-5", "Socket.dev", "2026-03-18"),
+    ("craz2team.vscode-todo-extension", "wave-5", "Socket.dev", "2026-03-18"),
+    ("quickrunn.auto-run-command-quick", "wave-5", "Socket.dev", "2026-03-18"),
 )
 
 _MALICIOUS_EXT_IDS: frozenset[str] = frozenset(ext_id for ext_id, _, _, _ in MALICIOUS_EXTENSIONS)
@@ -89,9 +197,17 @@ C2_IPS: frozenset[str] = frozenset(
         # Wave 4
         "45.32.150.251",
         "217.69.11.60",
-        # Wave 5
+        # Wave 5 - Koi Security
         "70.34.242.255",
         "217.69.3.152",
+        # Wave 5 - ForceMemo (StepSecurity)
+        "45.32.150.97",
+        "217.69.11.57",
+        "217.69.11.99",
+        "217.69.0.159",
+        "45.76.44.240",
+        # Wave 5 - Chrome RAT exfiltration (Aikido)
+        "45.150.34.158",
     }
 )
 
@@ -101,12 +217,22 @@ C2_WALLETS: frozenset[str] = frozenset(
         "28PKnu7RzizxBzFPoLp69HLXp9bJL3JFtT2s5QzHsEA2",  # Wave 1
         "BjVeAjPrSKFiingBn4vZvghsGj9KCE8AJVtbc9S8o8SC",  # Wave 4
         "6YGcuyFRJKZtcaYCCFba9fScNUvPkGXodXE1mJiSzqDJ",  # Wave 5
+        "G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t",  # Wave 5 - funding wallet (StepSecurity)
+        "DSRUBTziADDHSik7WQvSMjvwCHFsbsThrbbjWMoJPUiW",  # Wave 5 - Chrome RAT C2 (Aikido)
     }
 )
 
 # --- Other IOCs ---
 ATTACKER_EMAIL = "uhjdclolkdn@gmail.com"
 ATTACKER_PATH_ARTIFACT = "/Users/davidioasd/Downloads/rust_implant/"
+MARKER_VARIABLE = "lzcdrtfxyqiplpd"
+
+# Additional artifacts loaded from JSON via 3-layer merge:
+# - github_account: chiara585, francesca898
+# - openvsx_publisher: oorzc, laura6909, martina0094
+# - persistence_file: ~/init.json
+# - xor_key: 134
+# - aes_key: wDO6YyTm6DL0T0zJ0SXhUql5Mo0pdlSz
 
 # IP address regex for content scanning
 _IP_RE = re.compile(r"\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b")
@@ -174,6 +300,7 @@ def _hardcoded_to_dict() -> dict[str, Any]:
         "attacker_artifacts": [
             {"type": "email", "value": ATTACKER_EMAIL},
             {"type": "path", "value": ATTACKER_PATH_ARTIFACT},
+            {"type": "marker_variable", "value": MARKER_VARIABLE},
         ],
     }
 

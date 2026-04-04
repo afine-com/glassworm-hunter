@@ -103,7 +103,7 @@ class TestIoCLoading:
         assert len(db["npm_packages"]) > 0
         assert len(db["c2_ips"]) > 0
         assert len(db["c2_wallets"]) > 0
-        assert len(db["attacker_artifacts"]) == 2  # email + path
+        assert len(db["attacker_artifacts"]) == 3  # email + path + marker_variable
 
     def test_merge_deduplicates(self) -> None:
         base = {

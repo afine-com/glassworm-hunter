@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased]
+
+### IoC Database
+- Added 102 Wave-5 OpenVSX extensions (Socket.dev sleeper extensions, Koi Security wave-5 list, oorzc compromised account)
+- Added 6 new C2 IP addresses from StepSecurity ForceMemo analysis and Aikido Chrome RAT research
+- Added 2 new Solana wallet addresses (funding wallet, Chrome RAT C2 dead-drop)
+- Added 8 new attacker artifacts (GitHub accounts, OpenVSX publishers, persistence indicators, crypto keys)
+- Total IoCs: 123 extensions, 20 IPs, 4 npm packages, 5 wallets, 11 artifacts
+
+### Sources
+- Added Socket.dev as tracked IoC source (sleeper extensions, transitive campaign, oorzc disclosure)
+- Updated all source check timestamps to 2026-04-05
+
 ## 1.0.3 (2026-03-19)
 
 Initial release.

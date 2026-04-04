@@ -1,7 +1,14 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-03-18T00:00:00Z",
-  "sources_checked": ["manual-seed-from-ioc.py"],
+  "last_updated": "2026-04-05T00:00:00Z",
+  "sources_checked": [
+    "manual-seed-from-ioc.py",
+    "socket.dev",
+    "koi-security",
+    "stepsecurity",
+    "aikido-security",
+    "research-audit-2026-04-05"
+  ],
   "extensions": [
     {
       "id": "codejoy.codejoy-vscode-extension",
@@ -170,6 +177,822 @@
       "source_url": "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
       "date_discovered": "2026-03-12",
       "confidence": "high"
+    },
+    {
+      "id": "oorzc.i18n-tools-plus",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise",
+      "date_discovered": "2026-01-30",
+      "confidence": "high"
+    },
+    {
+      "id": "oorzc.mind-map",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise",
+      "date_discovered": "2026-01-30",
+      "confidence": "high"
+    },
+    {
+      "id": "oorzc.scss-to-css-compile",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise",
+      "date_discovered": "2026-01-30",
+      "confidence": "high"
+    },
+    {
+      "id": "oorzc.ssh-tools",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise",
+      "date_discovered": "2026-01-30",
+      "confidence": "high"
+    },
+    {
+      "id": "96-studio.json-formatter",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "id": "lauracode.wrap-selected-code",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "id": "awwwadem.language-professional-tools",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "calow-dex.prisma-database-schema-tools",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "codbro-dxp.explorer-xml-xquery",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "codevunm-tm.cluster-kuberntes-manager",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "croct-studio.antigravity-model-usage-dashboard",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "dev-tm.code-python-indent-helper",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "flape-osx.align-code-format-tool",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "floktokbok.autoimport-smart-tool",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "gorth-tm.your-project-manager-organizer",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "marcus-tm.ruby-intelligence-toolkit",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "msw-tm.component-vetur-toolkit",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "namop-dex.claude-code-assistant",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "specstudio.code-wakatime-activity-tracker",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "sweaty-tstudio.quarto-report-studio",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "sxatvo-tm.compile-runnner-build",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "tool-studio.prettier-pro-code-format",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "yamal-dext.wonder-workspace-icons",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-14",
+      "confidence": "high"
+    },
+    {
+      "id": "aadarkcode.one-dark-material",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "aligntool.extension-align-professional-tool",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "angular-studio.ng-angular-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "awesome-codebase.codebase-dart-pro",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "awesomeco.wonder-for-vscode-icons",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "bhbpbarn.vsce-python-indent-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "blockstoks.easily-gitignore-manage",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "brategmaqendaalar-studio.pro-prettyxml-formatter",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "codbroks.compile-runnner-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "codevunmis.csv-sql-tsv-rainbow",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "codwayexten.code-way-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "cosmic-themes.sql-formatter",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "crotoapp.vscode-xml-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "daeumer-web.es-linter-for-vs-code",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "dark-code-studio.flutter-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "densy-little-studio.wonder-for-vscode-icons",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "dep-labs-studio.dep-proffesinal-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "dev-studio-sense.php-comp-tools-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "devmidu-studio.svg-better-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "dopbop-studio.vscode-tailwindcss-extension-toolkit",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "errlenscre.error-lens-finder-ex",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "exss-studio.yaml-professional-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "federicanc.dotenv-syntax-highlighting",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "flutxvs.vscode-kuberntes-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "gvotcha.claude-code-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "gvotcha.claude-code-extensions",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "intellipro.extension-json-intelligence",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "kharizma.vscode-extension-wakatime",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "ko-zu-gun-studio.synchronization-settings-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "kwitch-studio.auto-run-command-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "lavender-studio.theme-lavender-dreams",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "littensy-studio.magical-icons",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "lyu-wen-studio-web-han.better-formatter-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "markvalid.vscode-mdvalidator-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "mecreation-studio.pyrefly-pro-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "mswincx.antigravity-cockpit",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "mswincx.antigravity-cockpit-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "namopins.prettier-pro-vscode-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "oigotm.my-command-palette-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "otoboss.autoimport-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "ovixcode.vscode-better-comments",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "pessa07tm.my-js-ts-auto-commands",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "potstok.dotnet-runtime-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "pretty-studio-advisor.prettyxml-formatter",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "prismapp.prisma-vs-code-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "projmanager.your-project-manager-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "pubruncode.ccoderunner",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "pyflowpyr.py-flowpyright-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "pyscopexte.pyscope-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "redcapcollective.vscode-quarkus-elite-suite",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "rubyideext.ruby-ide-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "runnerpost.runner-your-code",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "shinypy.shiny-extension-for-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "sol-studio.solidity-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "ssgwysc.volar-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "studio-jjalaire-team.professional-quarto-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "sun-shine-studio.shiny-extension-for-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "sxatvo.jinja-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "tamokill12.foundry-pdf-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "thing-mn.your-flow-extension-for-icons",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "tima-web-wang.shell-check-utils",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "tokcodes.import-cost-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "toowespace.worksets-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "treedotree.tree-do-todoextension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "tucyzirille-studio.angular-pro-tools-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "turbobase.sql-turbo-tool",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "twilkbilk.color-highlight-css",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "vce-brendan-studio-eich.js-debuger-vscode",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "yamaprolas.revature-labs-extension",
+      "wave": "wave-5",
+      "source": "Koi Security",
+      "source_url": "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques",
+      "date_discovered": "2026-03-16",
+      "confidence": "high"
+    },
+    {
+      "id": "awesome-codespace.jinja-language-support",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-17",
+      "confidence": "high"
+    },
+    {
+      "id": "cod-vok.arko-dev-devsecops",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-17",
+      "confidence": "high"
+    },
+    {
+      "id": "otobo-vs.csv-query-tsv-rainbow",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-17",
+      "confidence": "high"
+    },
+    {
+      "id": "oxigener-tmp.sql-turbo-manager",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-17",
+      "confidence": "high"
+    },
+    {
+      "id": "spacetoow.vsc-python-indent",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-17",
+      "confidence": "high"
+    },
+    {
+      "id": "baksmink.vscode-quokka-extension",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
+    },
+    {
+      "id": "bansheejust22.retro-vhs-theme",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
+    },
+    {
+      "id": "craz2team.vscode-todo-extension",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
+    },
+    {
+      "id": "daeumer-web.align-format-tool",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
+    },
+    {
+      "id": "quickrunn.auto-run-command-quick",
+      "wave": "wave-5",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
     }
   ],
   "npm_packages": [
@@ -336,6 +1159,60 @@
       "date_discovered": "2026-03-12",
       "context": "c2",
       "confidence": "high"
+    },
+    {
+      "ip": "45.32.150.97",
+      "wave": "wave-5",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-02-15",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "217.69.11.57",
+      "wave": "wave-5",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-02-15",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "217.69.11.99",
+      "wave": "wave-5",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-02-20",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "217.69.0.159",
+      "wave": "wave-5",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-03-08",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "45.76.44.240",
+      "wave": "wave-5",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-03-08",
+      "context": "c2",
+      "confidence": "high"
+    },
+    {
+      "ip": "45.150.34.158",
+      "wave": "wave-5",
+      "source": "Aikido Security",
+      "source_url": "https://www.aikido.dev/blog/glassworm-chrome-extension-rat",
+      "date_discovered": "2026-03-18",
+      "context": "exfiltration",
+      "confidence": "high"
     }
   ],
   "c2_wallets": [
@@ -362,6 +1239,22 @@
       "source_url": "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
       "date_discovered": "2026-03-12",
       "confidence": "high"
+    },
+    {
+      "address": "G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t",
+      "wave": "wave-5",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "address": "DSRUBTziADDHSik7WQvSMjvwCHFsbsThrbbjWMoJPUiW",
+      "wave": "wave-5",
+      "source": "Aikido Security",
+      "source_url": "https://www.aikido.dev/blog/glassworm-chrome-extension-rat",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
     }
   ],
   "attacker_artifacts": [
@@ -387,6 +1280,70 @@
       "source": "StepSecurity",
       "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
       "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "type": "github_account",
+      "value": "chiara585",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
+    },
+    {
+      "type": "github_account",
+      "value": "francesca898",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-18",
+      "confidence": "high"
+    },
+    {
+      "type": "openvsx_publisher",
+      "value": "oorzc",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise",
+      "date_discovered": "2026-01-30",
+      "confidence": "high"
+    },
+    {
+      "type": "openvsx_publisher",
+      "value": "laura6909",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "type": "openvsx_publisher",
+      "value": "martina0094",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "type": "persistence_file",
+      "value": "~/init.json",
+      "source": "Aikido Security",
+      "source_url": "https://www.aikido.dev/blog/glassworm-returns-unicode-attack-github-npm-vscode",
+      "date_discovered": "2026-03-13",
+      "confidence": "high"
+    },
+    {
+      "type": "xor_key",
+      "value": "134",
+      "source": "StepSecurity",
+      "source_url": "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push",
+      "date_discovered": "2026-03-12",
+      "confidence": "high"
+    },
+    {
+      "type": "aes_key",
+      "value": "wDO6YyTm6DL0T0zJ0SXhUql5Mo0pdlSz",
+      "source": "Socket.dev",
+      "source_url": "https://socket.dev/blog/open-vsx-transitive-glassworm-campaign",
+      "date_discovered": "2026-03-13",
       "confidence": "high"
     }
   ]
