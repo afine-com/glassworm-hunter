@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
 name = "glassworm-hunter"
-version = "1.0.3"
+dynamic = ["version"]
 description = "Detect GlassWorm supply chain attack payloads - technique detection, not just blocklists"
 readme = "README.md"
 license = "MIT"
@@ -35,6 +35,12 @@ dependencies = [
 
 [project.scripts]
 glassworm-hunter = "glassworm_hunter.cli:main"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+tag_regex = "^v(?P<version>.*)$"
 
 [project.urls]
 Homepage = "https://github.com/afine-com/glassworm-hunter"
