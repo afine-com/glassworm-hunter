@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## 1.0.4 (2026-04-05)
 
 ### IoC Database
 - Added 102 Wave-5 OpenVSX extensions (Socket.dev sleeper extensions, Koi Security wave-5 list, oorzc compromised account)
