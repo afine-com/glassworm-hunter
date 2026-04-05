@@ -1,51 +1,63 @@
 {
-  "last_run": "2026-03-18T00:00:00Z",
+  "last_run": "2026-04-05T00:00:00Z",
   "sources": {
     "solana_rpc": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "Solana mainnet RPC - monitors known C2 wallets for new transaction memos containing payload URLs",
       "endpoint": "https://api.mainnet-beta.solana.com",
       "new_iocs_found": 0
     },
     "koi_security": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "Koi Security - original GlassWorm discoverer, live incident tracker",
       "urls": [
         "https://www.koi.ai/incident/live-updates-glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-and-vscode-marketplaces",
-        "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace"
+        "https://www.koi.ai/blog/glassworm-first-self-propagating-worm-using-invisible-code-hits-openvsx-marketplace",
+        "https://www.koi.ai/blog/glassworm-hits-mcp-5th-wave-with-new-delivery-techniques"
       ],
       "new_iocs_found": 0
     },
     "aikido_security": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "Aikido Security - independent GlassWorm analysis, npm/extension wave tracking",
       "urls": [
         "https://www.aikido.dev/blog/glassworm-returns-unicode-attack-github-npm-vscode",
-        "https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers"
+        "https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers",
+        "https://www.aikido.dev/blog/glassworm-chrome-extension-rat"
       ],
       "new_iocs_found": 0
     },
     "stepsecurity": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "StepSecurity - ForceMemo/GlassWorm Python variant analysis",
       "urls": [
         "https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push"
       ],
       "new_iocs_found": 0
     },
+    "socket_dev": {
+      "last_checked": "2026-04-05T00:00:00Z",
+      "description": "Socket.dev - OpenVSX sleeper extension analysis and transitive campaign tracking",
+      "urls": [
+        "https://socket.dev/blog/glassworm-sleeper-extensions-activated-on-open-vsx",
+        "https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise",
+        "https://socket.dev/blog/open-vsx-transitive-glassworm-campaign"
+      ],
+      "new_iocs_found": 0
+    },
     "web_search": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "General web search for new GlassWorm reporting from any source",
       "new_iocs_found": 0
     },
     "github_advisory": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "GitHub Advisory Database - structured malware advisories (often delayed for GlassWorm)",
       "endpoint": "https://api.github.com/advisories?type=malware&ecosystem=npm",
       "new_iocs_found": 0
     },
     "osv_dev": {
-      "last_checked": "2026-03-18T00:00:00Z",
+      "last_checked": "2026-04-05T00:00:00Z",
       "description": "OSV.dev - Google open source vulnerability database (often delayed for GlassWorm)",
       "endpoint": "https://api.osv.dev/v1/query",
       "new_iocs_found": 0
