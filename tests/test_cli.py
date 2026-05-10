@@ -19,10 +19,12 @@ class TestCLI:
         assert "GlassWorm Scanner" in result.output
 
     def test_version(self) -> None:
+        import re
         runner = CliRunner()
         result = runner.invoke(main, ["version"])
         assert result.exit_code == 0
-        assert "0.1.0" in result.output
+        assert "glassworm-hunter" in result.output
+        assert re.search(r"\d+\.\d+(\.\d+)?", result.output)
 
     def test_scan_clean_dir_exit_0(self, tmp_clean_dir: Path) -> None:
         runner = CliRunner()
