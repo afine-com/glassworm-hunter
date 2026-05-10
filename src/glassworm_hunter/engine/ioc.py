@@ -447,6 +447,49 @@ def reset_cache() -> None:
     _extra_ioc_path = None
 
 
+def check_filesystem_artifacts() -> list[Finding]:
+    """Check filesystem for GlassWorm persistence and metadata artifacts.
+
+    Handles artifact types that cannot be detected by scanning file content:
+    - ``persistence_file``: checks whether the path exists on disk.
+    - ``openvsx_publisher``: not a filesystem check — callers should use
+      check_extension_id() which already validates publisher.name pairs.
+    - ``github_account``: not locally verifiable; included in IOC database
+      for reference but not actionable without git-log inspection.
+
+    Returns a list of Findings for any persistence files that exist.
+    """
+    findings: list[Finding] = []
+    artifacts = get_attacker_artifacts()
+    for artifact in artifacts:
+        if artifact.get("type") != "persistence_file":
+            continue
+        raw_path = artifact.get("value", "")
+        if not raw_path:
+            continue
+        expanded = Path(raw_path.replace("~/", str(Path.home()) + "/"))
+        if expanded.exists():
+            findings.append(
+                Finding(
+                    severity=Severity.CRITICAL,
+                    detection_type=DetectionType.C2_INDICATOR,
+                    file_path=expanded,
+                    line_number=1,
+                    title=f"GlassWorm persistence file found: {raw_path}",
+                    description=(
+                        f"File '{raw_path}' is a known GlassWorm persistence "
+                        "artifact. Its presence indicates active or prior infection."
+                    ),
+                    evidence=str(expanded),
+                    recommendation=(
+                        "Remove this file immediately. Rotate all developer "
+                        "credentials (GitHub, NPM, SSH keys, AWS)."
+                    ),
+                )
+            )
+    return findings
+
+
 # --- Detection functions (use merged database) ---
 
 
@@ -571,12 +614,82 @@ def search_file_content_for_iocs(content: str, file_path: Path) -> list[Finding]
                 )
             )
 
-    # Search for attacker artifacts (from merged database)
+    # Search for attacker artifacts (from merged database).
+    #
+    # Each artifact type requires a different matching strategy:
+    #
+    #   email, path, marker_variable, aes_key  — unique strings; substring
+    #     match is safe and sufficient.
+    #
+    #   xor_key — typically a short integer (e.g. "134").  A plain substring
+    #     match produces enormous numbers of false positives in minified JS
+    #     where short integers appear as array indices, port numbers, ASCII
+    #     codes, etc.  Instead we require a whole-word match AND that the
+    #     value appears near a XOR or bitwise-shift operator, matching the
+    #     actual GlassWorm decoding idiom:
+    #       ``charCode ^ 134``, ``^ 0x86``, ``key = 134``.
+    #
+    #   openvsx_publisher, github_account, persistence_file — these are
+    #     metadata / filesystem IOCs that cannot be detected by scanning
+    #     file *content*.  They are intentionally skipped here; callers
+    #     should use check_extension_id() and check_filesystem_artifacts()
+    #     for those types.
+    #
+    _CONTENT_SKIP_TYPES = frozenset(
+        {"openvsx_publisher", "github_account", "persistence_file"}
+    )
+
     for artifact in artifacts:
         value = artifact.get("value", "")
-        if not value or value not in content:
-            continue
         artifact_type = artifact.get("type", "unknown")
+
+        if not value or artifact_type in _CONTENT_SKIP_TYPES:
+            continue
+
+        if artifact_type == "xor_key":
+            # Require whole-word match adjacent to a XOR / bitwise operator
+            # so that bare integers like "134" don't fire on every minified
+            # bundle.  The pattern mirrors the GlassWorm decoder idiom:
+            #   charCode ^ 134   |   ^134   |   key=134,   |   [134]^
+            pattern = re.compile(
+                r"(?:[\^|&~]|xor|key\s*[=:,])\s*"
+                + re.escape(value)
+                + r"\b"
+                r"|"
+                r"\b"
+                + re.escape(value)
+                + r"\s*[\^|&~]",
+                re.IGNORECASE,
+            )
+            match = pattern.search(content)
+            if not match:
+                continue
+            line_num = content[: match.start()].count("\n") + 1
+            evidence = content[max(0, match.start() - 40) : match.end() + 40].strip()
+            findings.append(
+                Finding(
+                    severity=Severity.HIGH,
+                    detection_type=DetectionType.C2_INDICATOR,
+                    file_path=file_path,
+                    line_number=line_num,
+                    title=f"GlassWorm XOR key in bitwise context: {value}",
+                    description=(
+                        f"Found known GlassWorm XOR key '{value}' used in a "
+                        "bitwise/XOR expression — consistent with the GlassWorm "
+                        "ForceMemo payload decoder."
+                    ),
+                    evidence=evidence[:200],
+                    recommendation="Investigate this file immediately.",
+                )
+            )
+            continue
+
+        # For all remaining types (email, path, marker_variable, aes_key,
+        # and any future types) use plain substring matching — these values
+        # are specific enough that false positives are negligible.
+        if value not in content:
+            continue
+
         line_num = content[: content.index(value)].count("\n") + 1
 
         if artifact_type == "email":
@@ -627,6 +740,7 @@ def search_file_content_for_iocs(content: str, file_path: Path) -> list[Finding]
                 )
             )
         else:
+            # aes_key and any future content-matchable types
             findings.append(
                 Finding(
                     severity=Severity.HIGH,

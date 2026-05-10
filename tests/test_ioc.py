@@ -9,12 +9,14 @@ from glassworm_hunter.engine.ioc import (
     _hardcoded_to_dict,
     _merge_ioc_dbs,
     check_extension_id,
+    check_filesystem_artifacts,
     check_npm_package,
     get_attacker_artifacts,
     get_c2_ips,
     get_extension_ids,
     get_npm_packages,
     load_ioc_database,
+    reset_cache,
     search_file_content_for_iocs,
 )
 from glassworm_hunter.engine.models import DetectionType, Severity
@@ -178,3 +180,186 @@ class TestIoCLoading:
         assert "test.user-extension" in ids
         # Hardcoded still present
         assert "codejoy.codejoy-vscode-extension" in ids
+
+
+class TestXorKeyMatching:
+    """xor_key artifacts must use whole-word + bitwise-context matching.
+
+    The GlassWorm ForceMemo XOR key (value "134") is a short integer that
+    appears countless times in legitimate minified JS as array indices,
+    ASCII codes, port numbers, etc.  A plain substring match produces
+    enormous numbers of false positives.  These tests verify that only
+    actual XOR/bitwise usage triggers a finding.
+    """
+
+    def _make_artifact_db(self, monkeypatch, ioc_mod) -> None:
+        """Inject a minimal IOC database with only the xor_key artifact."""
+        import glassworm_hunter.engine.ioc as _ioc
+
+        fake_db = {
+            "schema_version": "1.0",
+            "extensions": [],
+            "npm_packages": [],
+            "c2_ips": [],
+            "c2_wallets": [],
+            "attacker_artifacts": [
+                {"type": "xor_key", "value": "134", "source": "test"}
+            ],
+        }
+        monkeypatch.setattr(_ioc, "_merged_db", fake_db)
+
+    def test_xor_key_fires_on_xor_expression(self, monkeypatch) -> None:
+        import glassworm_hunter.engine.ioc as ioc_mod
+        self._make_artifact_db(monkeypatch, ioc_mod)
+
+        content = "const decoded = charCode ^ 134;\n"
+        findings = search_file_content_for_iocs(content, Path("evil.js"))
+        assert len(findings) == 1
+        assert "XOR key" in findings[0].title
+
+    def test_xor_key_fires_on_key_assignment(self, monkeypatch) -> None:
+        import glassworm_hunter.engine.ioc as ioc_mod
+        self._make_artifact_db(monkeypatch, ioc_mod)
+
+        content = "var key=134,encoded=payload;\n"
+        findings = search_file_content_for_iocs(content, Path("evil.js"))
+        assert len(findings) == 1
+
+    def test_xor_key_no_false_positive_array_index(self, monkeypatch) -> None:
+        """Array index access should NOT fire."""
+        import glassworm_hunter.engine.ioc as ioc_mod
+        self._make_artifact_db(monkeypatch, ioc_mod)
+
+        content = "var x = arr[134];\nreturn items.slice(0, 134);\n"
+        findings = search_file_content_for_iocs(content, Path("clean.min.js"))
+        assert len(findings) == 0
+
+    def test_xor_key_no_false_positive_minified_js(self, monkeypatch) -> None:
+        """Minified JS with 134 as a numeric literal must not fire."""
+        import glassworm_hunter.engine.ioc as ioc_mod
+        self._make_artifact_db(monkeypatch, ioc_mod)
+
+        # Real-world pattern from KaTeX / mermaid / highlight.js
+        content = (
+            "A(j,P,z,`\\u{E010}`,`\\\\@nleqslant`),A(j,P,z,`\\u{E011}`,"
+            "`\\\\@nleqq`),t.push(134),r.splice(0,134),"
+            "n.charCodeAt(134)===32&&(o=134);\n"
+        )
+        findings = search_file_content_for_iocs(content, Path("katex.min.js"))
+        assert len(findings) == 0
+
+    def test_xor_key_no_false_positive_string_literal(self, monkeypatch) -> None:
+        """String containing '134' as a substring must not fire."""
+        import glassworm_hunter.engine.ioc as ioc_mod
+        self._make_artifact_db(monkeypatch, ioc_mod)
+
+        content = 'var version = "1.34.0"; var port = 13400;\n'
+        findings = search_file_content_for_iocs(content, Path("clean.js"))
+        assert len(findings) == 0
+
+
+class TestSkippedArtifactTypes:
+    """openvsx_publisher, github_account, and persistence_file must not
+    produce findings from file-content scanning — they are metadata or
+    filesystem IOCs."""
+
+    def _make_db_with(self, monkeypatch, artifact_type: str, value: str) -> None:
+        import glassworm_hunter.engine.ioc as _ioc
+        monkeypatch.setattr(
+            _ioc,
+            "_merged_db",
+            {
+                "schema_version": "1.0",
+                "extensions": [],
+                "npm_packages": [],
+                "c2_ips": [],
+                "c2_wallets": [],
+                "attacker_artifacts": [
+                    {"type": artifact_type, "value": value, "source": "test"}
+                ],
+            },
+        )
+
+    def test_openvsx_publisher_skipped_in_content_scan(self, monkeypatch) -> None:
+        self._make_db_with(monkeypatch, "openvsx_publisher", "oorzc")
+        # Content that literally contains the publisher name
+        content = 'publisher: "oorzc", name: "ssh-tools"\n'
+        findings = search_file_content_for_iocs(content, Path("package.json"))
+        assert len(findings) == 0
+
+    def test_github_account_skipped_in_content_scan(self, monkeypatch) -> None:
+        self._make_db_with(monkeypatch, "github_account", "chiara585")
+        content = '# Contributed by @chiara585\n'
+        findings = search_file_content_for_iocs(content, Path("CHANGELOG.md"))
+        assert len(findings) == 0
+
+    def test_persistence_file_skipped_in_content_scan(self, monkeypatch) -> None:
+        self._make_db_with(monkeypatch, "persistence_file", "~/init.json")
+        content = 'load("~/init.json");\n'
+        findings = search_file_content_for_iocs(content, Path("loader.js"))
+        assert len(findings) == 0
+
+
+class TestFilesystemArtifacts:
+    """check_filesystem_artifacts() detects persistence files on disk."""
+
+    def test_detects_existing_persistence_file(
+        self, monkeypatch, tmp_path: Path
+    ) -> None:
+        import glassworm_hunter.engine.ioc as ioc_mod
+
+        persist = tmp_path / "init.json"
+        persist.write_text("{}", encoding="utf-8")
+
+        monkeypatch.setattr(
+            ioc_mod,
+            "_merged_db",
+            {
+                "schema_version": "1.0",
+                "extensions": [],
+                "npm_packages": [],
+                "c2_ips": [],
+                "c2_wallets": [],
+                "attacker_artifacts": [
+                    {
+                        "type": "persistence_file",
+                        "value": str(persist),
+                        "source": "test",
+                    }
+                ],
+            },
+        )
+
+        findings = check_filesystem_artifacts()
+        assert len(findings) == 1
+        assert findings[0].severity == Severity.CRITICAL
+        assert "persistence file" in findings[0].title.lower()
+
+    def test_no_finding_when_persistence_file_absent(
+        self, monkeypatch, tmp_path: Path
+    ) -> None:
+        import glassworm_hunter.engine.ioc as ioc_mod
+
+        absent = tmp_path / "init.json"  # not created
+
+        monkeypatch.setattr(
+            ioc_mod,
+            "_merged_db",
+            {
+                "schema_version": "1.0",
+                "extensions": [],
+                "npm_packages": [],
+                "c2_ips": [],
+                "c2_wallets": [],
+                "attacker_artifacts": [
+                    {
+                        "type": "persistence_file",
+                        "value": str(absent),
+                        "source": "test",
+                    }
+                ],
+            },
+        )
+
+        findings = check_filesystem_artifacts()
+        assert len(findings) == 0
