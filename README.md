@@ -116,7 +116,7 @@ glassworm-hunter version
 
 ## If you find something
 
-1. **Don't panic.** The scanner found an indicator, not a confirmed breach.
+1. **Don't panic.** The scanner found an indicator, not a confirmed breach. Some detections may be false positives, and our team is continuously working on reducing them and improving detection accuracy.
 2. **Don't execute the flagged code.** Don't run, build, or test the affected project until resolved.
 3. **CRITICAL findings:** Uninstall the extension/package immediately. Rotate your NPM tokens, GitHub tokens, SSH keys, and any other credentials on the machine.
 4. **HIGH findings:** Investigate the flagged file. If it's in a dependency you didn't explicitly install, remove it.
