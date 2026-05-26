@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.5 (2026-05-26)
+
+### False positive reduction
+- `xor_key` IOC now requires bitwise/XOR context (e.g. `^ 134`, `key = 134`) instead of bare substring match. Eliminates hundreds of false positives in minified JS bundles (KaTeX, mermaid, highlight.js etc.) where `134` appears as array index or ASCII code.
+- `openvsx_publisher`, `github_account`, `persistence_file` artifacts no longer matched against arbitrary file content (was producing false positives on any incidental occurrence of those strings).
+
+### Detection
+- New `check_extension_publisher()` matches `package.json` publisher field against `openvsx_publisher` IOC list — catches new extensions from a compromised publisher (e.g. wave-5 `oorzc`, `laura6909`, `martina0094`) before the explicit `publisher.name` pair is added to the known-malicious list.
+
 ## 1.0.4 (2026-04-05)
 
 ### IoC Database
