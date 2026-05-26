@@ -147,9 +147,11 @@ def _scan_single_extension(
     ext_id = f"{publisher}.{name}" if publisher and name else ext_folder.name
 
     # Check against known malicious extensions
+    matched_known_id = False
     if publisher and name:
         malicious = ioc.check_extension_id(publisher, name)
         if malicious:
+            matched_known_id = True
             # Update the file path to the actual extension location
             findings.append(
                 Finding(
@@ -161,6 +163,25 @@ def _scan_single_extension(
                     evidence=malicious.evidence,
                     recommendation=malicious.recommendation,
                     metadata=malicious.metadata,
+                )
+            )
+
+    # Even when the full ID is not on the known-bad list, the publisher itself
+    # may be a compromised account — flag the extension as suspect.  Skip if
+    # we already reported the stronger known-bad finding above.
+    if publisher and not matched_known_id:
+        pub_finding = ioc.check_extension_publisher(publisher, name)
+        if pub_finding:
+            findings.append(
+                Finding(
+                    severity=pub_finding.severity,
+                    detection_type=pub_finding.detection_type,
+                    file_path=pkg_json_path,
+                    title=pub_finding.title,
+                    description=pub_finding.description,
+                    evidence=pub_finding.evidence,
+                    recommendation=pub_finding.recommendation,
+                    metadata=pub_finding.metadata,
                 )
             )
 

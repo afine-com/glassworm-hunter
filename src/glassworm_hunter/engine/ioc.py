@@ -242,6 +242,46 @@ _WALLET_RE = re.compile(
     r"\b([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{32,44})\b"
 )
 
+# Artifact types that are metadata or filesystem indicators, not text-in-file
+# indicators.  See search_file_content_for_iocs() for details.  openvsx_publisher
+# is consumed by check_extension_publisher() against the package.json publisher
+# field; the other two have no proper consumer yet.
+_CONTENT_SKIP_TYPES = frozenset(
+    {"openvsx_publisher", "github_account", "persistence_file"}
+)
+
+# Compiled xor_key regex cache, keyed by the artifact value.  See
+# _xor_key_pattern() for the matching idiom.
+_XOR_KEY_PATTERN_CACHE: dict[str, re.Pattern[str]] = {}
+
+
+def _xor_key_pattern(value: str) -> re.Pattern[str]:
+    """Build a regex that matches ``value`` only in a bitwise / XOR context.
+
+    Matches the GlassWorm ForceMemo decoder idiom and rejects bare numeric
+    occurrences common in legitimate minified JS:
+
+        match:  ``charCode ^ 134``, ``^134``, ``key = 134``, ``134 ^ x``
+        skip:   ``arr[134]``, ``slice(0, 134)``, ``port = 13400``, ``"1.34.0"``
+
+    ``\\b`` boundaries on ``key`` and ``xor`` prevent matches inside longer
+    identifiers (e.g. ``monkey=134`` or ``xor134table``).
+    """
+    cached = _XOR_KEY_PATTERN_CACHE.get(value)
+    if cached is not None:
+        return cached
+    escaped = re.escape(value)
+    pattern = re.compile(
+        r"(?:[\^|&~]|\bxor\b|\bkey\s*[=:,])\s*"
+        + escaped
+        + r"\b|\b"
+        + escaped
+        + r"\s*[\^|&~]",
+        re.IGNORECASE,
+    )
+    _XOR_KEY_PATTERN_CACHE[value] = pattern
+    return pattern
+
 # --- 3-layer IoC loading ---
 
 # Dev-time path (relative to source tree)
@@ -445,6 +485,7 @@ def reset_cache() -> None:
     global _merged_db, _extra_ioc_path
     _merged_db = None
     _extra_ioc_path = None
+    _XOR_KEY_PATTERN_CACHE.clear()
 
 
 # --- Detection functions (use merged database) ---
@@ -477,6 +518,44 @@ def check_extension_id(publisher: str, name: str) -> Finding | None:
                 ),
                 metadata={"wave": wave, "source": source, "date": date},
             )
+    return None
+
+
+def check_extension_publisher(publisher: str, name: str) -> Finding | None:
+    """Check if an extension's ``publisher`` field is a known compromised publisher.
+
+    Catches new extensions from a publisher whose account was previously
+    compromised, even when the full ``publisher.name`` ID is not yet on the
+    hardcoded malicious list.  Mirrors the wave-5 OpenVSX compromise pattern
+    where a single takeover yields multiple sleeper extensions over time.
+    """
+    if not publisher:
+        return None
+    pub_lower = publisher.lower()
+    for artifact in get_attacker_artifacts():
+        if artifact.get("type") != "openvsx_publisher":
+            continue
+        if artifact.get("value", "").lower() != pub_lower:
+            continue
+        ext_id = f"{publisher}.{name}" if name else publisher
+        return Finding(
+            severity=Severity.HIGH,
+            detection_type=DetectionType.KNOWN_MALICIOUS_EXTENSION,
+            file_path=Path("."),
+            title=f"Extension from compromised GlassWorm publisher: {ext_id}",
+            description=(
+                f"Publisher '{publisher}' is on the GlassWorm compromised-publisher "
+                "list. Extensions from this account should be treated as suspect "
+                "regardless of whether the specific extension is on the known-bad "
+                "list — sleeper extensions from this publisher have appeared in "
+                "later waves."
+            ),
+            evidence=f"publisher={publisher} name={name}",
+            recommendation=(
+                "Uninstall this extension. Review other extensions from the same "
+                "publisher. Rotate credentials if the extension was active."
+            ),
+        )
     return None
 
 
@@ -571,12 +650,62 @@ def search_file_content_for_iocs(content: str, file_path: Path) -> list[Finding]
                 )
             )
 
-    # Search for attacker artifacts (from merged database)
+    # Search for attacker artifacts (from merged database).
+    #
+    # Matching strategy varies by artifact type:
+    #
+    #   email, path, marker_variable, aes_key
+    #       Unique strings — substring match is safe and sufficient.
+    #
+    #   xor_key
+    #       Typically a short integer (e.g. "134") that appears countless
+    #       times in legitimate minified JS as array indices, ASCII codes,
+    #       port numbers etc.  Plain substring match generates hundreds of
+    #       false positives per bundle.  We require the value to sit
+    #       adjacent to a bitwise operator or to an explicit ``key=`` /
+    #       ``xor`` construct, mirroring the GlassWorm ForceMemo decoder
+    #       idiom: ``charCode ^ 134``, ``key = 134``.
+    #
+    #   openvsx_publisher, github_account, persistence_file
+    #       Metadata / filesystem IOCs that cannot be detected by scanning
+    #       file content.  ``openvsx_publisher`` is checked in the vscode
+    #       scanner against the ``package.json`` publisher field via
+    #       check_extension_publisher().  ``github_account`` and
+    #       ``persistence_file`` have no proper consumer yet — substring
+    #       matching them in arbitrary file content only produces noise.
     for artifact in artifacts:
         value = artifact.get("value", "")
-        if not value or value not in content:
-            continue
         artifact_type = artifact.get("type", "unknown")
+
+        if not value or artifact_type in _CONTENT_SKIP_TYPES:
+            continue
+
+        if artifact_type == "xor_key":
+            match = _xor_key_pattern(value).search(content)
+            if match is None:
+                continue
+            line_num = content[: match.start()].count("\n") + 1
+            evidence = content[max(0, match.start() - 40) : match.end() + 40].strip()
+            findings.append(
+                Finding(
+                    severity=Severity.HIGH,
+                    detection_type=DetectionType.C2_INDICATOR,
+                    file_path=file_path,
+                    line_number=line_num,
+                    title=f"GlassWorm XOR key in bitwise context: {value}",
+                    description=(
+                        f"Found known GlassWorm XOR key '{value}' used in a "
+                        "bitwise/XOR expression — consistent with the GlassWorm "
+                        "ForceMemo payload decoder."
+                    ),
+                    evidence=evidence[:200],
+                    recommendation="Investigate this file immediately.",
+                )
+            )
+            continue
+
+        if value not in content:
+            continue
         line_num = content[: content.index(value)].count("\n") + 1
 
         if artifact_type == "email":

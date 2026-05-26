@@ -9,15 +9,39 @@ from glassworm_hunter.engine.ioc import (
     _hardcoded_to_dict,
     _merge_ioc_dbs,
     check_extension_id,
+    check_extension_publisher,
     check_npm_package,
     get_attacker_artifacts,
     get_c2_ips,
     get_extension_ids,
     get_npm_packages,
     load_ioc_database,
+    reset_cache,
     search_file_content_for_iocs,
 )
 from glassworm_hunter.engine.models import DetectionType, Severity
+
+
+def _set_artifact_db(monkeypatch, artifacts: list[dict[str, str]]) -> None:
+    """Replace the merged IOC database with a minimal one containing only
+    the given attacker_artifacts.  Other IOC categories are emptied so the
+    test focuses on artifact-matching logic.
+    """
+    import glassworm_hunter.engine.ioc as ioc_mod
+
+    reset_cache()
+    monkeypatch.setattr(
+        ioc_mod,
+        "_merged_db",
+        {
+            "schema_version": "1.0",
+            "extensions": [],
+            "npm_packages": [],
+            "c2_ips": [],
+            "c2_wallets": [],
+            "attacker_artifacts": artifacts,
+        },
+    )
 
 
 class TestExtensionIOC:
@@ -152,6 +176,167 @@ class TestIoCLoading:
         values = {a["value"] for a in artifacts}
         assert "lzcdrtfxyqiplpd" in values
 
+
+class TestXorKeyMatching:
+    """``xor_key`` artifacts must use bitwise-context matching, not substring.
+
+    The GlassWorm ForceMemo XOR key (value "134") is a short integer that
+    appears countless times in legitimate minified JS as array indices,
+    ASCII codes, port numbers etc.  A plain substring match generates
+    enormous numbers of false positives.  Verify that only actual XOR /
+    bitwise usage triggers a finding.
+    """
+
+    def test_xor_key_fires_on_xor_expression(self, monkeypatch) -> None:
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            "const decoded = charCode ^ 134;\n", Path("evil.js")
+        )
+        assert len(findings) == 1
+        assert "XOR key" in findings[0].title
+
+    def test_xor_key_fires_on_key_assignment(self, monkeypatch) -> None:
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            "var key=134,encoded=payload;\n", Path("evil.js")
+        )
+        assert len(findings) == 1
+
+    def test_xor_key_fires_on_left_side_xor(self, monkeypatch) -> None:
+        """134 ^ x must fire — value can be on either side of the operator."""
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            "for(i=0;i<n;i++)out[i]=134^buf[i];\n", Path("evil.js")
+        )
+        assert len(findings) == 1
+
+    def test_xor_key_no_fp_array_index(self, monkeypatch) -> None:
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            "var x = arr[134];\nreturn items.slice(0, 134);\n",
+            Path("clean.min.js"),
+        )
+        assert len(findings) == 0
+
+    def test_xor_key_no_fp_minified_bundle(self, monkeypatch) -> None:
+        """Real-world pattern from KaTeX/mermaid: ``134`` appears as a numeric
+        literal everywhere but never adjacent to a bitwise operator."""
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        content = (
+            "A(j,P,z,`\\u{E010}`,`@nleqslant`),A(j,P,z,`\\u{E011}`,"
+            "`@nleqq`),t.push(134),r.splice(0,134),"
+            "n.charCodeAt(134)===32&&(o=134);\n"
+        )
+        findings = search_file_content_for_iocs(content, Path("katex.min.js"))
+        assert len(findings) == 0
+
+    def test_xor_key_no_fp_string_literal(self, monkeypatch) -> None:
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            'var version = "1.34.0"; var port = 13400;\n',
+            Path("clean.js"),
+        )
+        assert len(findings) == 0
+
+    def test_xor_key_no_fp_identifier_ending_in_key(self, monkeypatch) -> None:
+        """``monkey=134`` must not match the ``key=134`` idiom."""
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            "var monkey=134;\nfunction donkey(){return 134;}\n",
+            Path("zoo.js"),
+        )
+        assert len(findings) == 0
+
+    def test_xor_key_no_fp_identifier_starting_with_xor(self, monkeypatch) -> None:
+        """``xor134table`` must not match the ``xor 134`` idiom."""
+        _set_artifact_db(monkeypatch, [{"type": "xor_key", "value": "134"}])
+        findings = search_file_content_for_iocs(
+            "var xor134table = []; xor_helper(134);\n",
+            Path("clean.js"),
+        )
+        assert len(findings) == 0
+
+
+class TestSkippedMetadataTypes:
+    """``openvsx_publisher``, ``github_account``, and ``persistence_file`` are
+    metadata / filesystem IOCs and must not be matched by content substring
+    scanning.  They are consumed elsewhere (publisher field, git log,
+    filesystem) or not at all.  Content matching would produce noise."""
+
+    def test_openvsx_publisher_skipped_in_content_scan(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "openvsx_publisher", "value": "oorzc"}]
+        )
+        findings = search_file_content_for_iocs(
+            'publisher: "oorzc", name: "ssh-tools"\n', Path("package.json")
+        )
+        assert len(findings) == 0
+
+    def test_github_account_skipped_in_content_scan(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "github_account", "value": "chiara585"}]
+        )
+        findings = search_file_content_for_iocs(
+            "# Contributed by @chiara585\n", Path("CHANGELOG.md")
+        )
+        assert len(findings) == 0
+
+    def test_persistence_file_skipped_in_content_scan(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "persistence_file", "value": "~/init.json"}]
+        )
+        findings = search_file_content_for_iocs(
+            'load("~/init.json");\n', Path("loader.js")
+        )
+        assert len(findings) == 0
+
+
+class TestExtensionPublisher:
+    """``check_extension_publisher`` matches the package.json publisher field
+    against ``openvsx_publisher`` IOCs — catches new extensions from a known
+    compromised account before they are added to the explicit malicious list.
+    """
+
+    def test_matches_compromised_publisher(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "openvsx_publisher", "value": "oorzc"}]
+        )
+        finding = check_extension_publisher("oorzc", "brand-new-extension")
+        assert finding is not None
+        assert finding.severity == Severity.HIGH
+        assert "compromised" in finding.title.lower()
+
+    def test_case_insensitive(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "openvsx_publisher", "value": "oorzc"}]
+        )
+        assert check_extension_publisher("OORZC", "anything") is not None
+
+    def test_no_match_for_clean_publisher(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "openvsx_publisher", "value": "oorzc"}]
+        )
+        assert check_extension_publisher("microsoft", "python") is None
+
+    def test_empty_publisher_returns_none(self, monkeypatch) -> None:
+        _set_artifact_db(
+            monkeypatch, [{"type": "openvsx_publisher", "value": "oorzc"}]
+        )
+        assert check_extension_publisher("", "anything") is None
+
+    def test_other_artifact_types_ignored(self, monkeypatch) -> None:
+        """Only openvsx_publisher artifacts are consulted."""
+        _set_artifact_db(
+            monkeypatch,
+            [
+                {"type": "email", "value": "oorzc"},
+                {"type": "github_account", "value": "oorzc"},
+            ],
+        )
+        assert check_extension_publisher("oorzc", "anything") is None
+
+
+class TestUserJsonLoading:
     def test_user_json_loading(self, tmp_path: Path, monkeypatch: object) -> None:
         """User-local ioc.json gets merged."""
         import glassworm_hunter.engine.ioc as ioc_mod
